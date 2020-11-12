@@ -7,6 +7,7 @@
     "managed_image_name": "{{env `MANAGED_IMAGE_NAME`}}",
     "managed_image_resource_group_name": "{{env `RESOURCE_GROUP_NAME`}}"
   },
+  
   "builders": [{
     "type": "azure-arm",
     "client_id": "{{user `client_id`}}",
