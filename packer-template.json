@@ -14,6 +14,7 @@
     "subscription_id": "{{user `subscription_id`}}",
     "managed_image_name": "{{user `managed_image_name`}}",
     "resource_group_name": "{{user `resource_group_name`}}",
+
     "os_type": "Linux",
     "image_publisher": "OpenLogic",
     "image_offer": "CentOS-HPC",
