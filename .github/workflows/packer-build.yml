@@ -2,13 +2,12 @@ name: Run packer build on a template file
 
 on:
   push:
-    branches:
-        - 'master'
+    branches: [main]
 jobs:
   packer_build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: packer validate
         uses: docker://hashicorp/packer:latest
         with:
