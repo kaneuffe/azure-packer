@@ -21,11 +21,6 @@
   }],
   "provisioners": [
     {
-      "type" : "file",
-      "source" : "input_files",
-      "destination" : "/tmp/input_files"
-    },
-    {
     "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
     "inline": [
       "yum install -y cloud-init",
