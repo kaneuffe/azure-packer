@@ -16,7 +16,9 @@ jobs:
           varFile: 'packer-vars.json'
           workingDir: '.'
         env:
-          ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
-          ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-          ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
-          ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+          ARM_CLIENT_ID: ${{secrets.ARM_CLIENT_ID}}
+          ARM_CLIENT_SECRET: ${{secrets.ARM_CLIENT_SECRET}}
+          ARM_SUBSCRIPTION_ID: ${{secrets.ARM_SUBSCRIPTION_ID}}
+          ARM_TENANT_ID: ${{secrets.ARM_TENANT_ID}}
+          MANAGED_IMAGE_NAME: ${{secrets.MANAGED_IMAGE_NAME}}
+          RESOURCE_GROUP_NAME: ${{secrets.RESOURCE_GROUP_NAME}} 
