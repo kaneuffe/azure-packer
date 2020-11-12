@@ -9,12 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Packer build
-        uses: riznob/packer-build-action@v1.1
+      - name: packer validate
+        uses: docker://hashicorp/packer:latest
         with:
-          templateFile: 'packer-template.json'
-          varFile: 'packer-vars.json'
-          workingDir: '.'
+          args: validate packer-template.json
+      - name: packer build
+        uses: docker://hashicorp/packer:latest
+        with:
+          args: build packer-template.json
         env:
           ARM_CLIENT_ID: ${{secrets.ARM_CLIENT_ID}}
           ARM_CLIENT_SECRET: ${{secrets.ARM_CLIENT_SECRET}}
