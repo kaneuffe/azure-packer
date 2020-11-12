@@ -1,0 +1,37 @@
+{  
+  "builders": [{
+    "type": "azure-arm",
+    "client_id": "{{user `client_id`}}",
+    "client_secret": "{{user `client_secret`}}",
+    "subscription_id": "{{user `subscription_id`}}",
+    "managed_image_name": "{{user `managed_image_name`}}",
+    "resource_group_name": "{{user `resource_group_name`}}",
+
+    "os_type": "Linux",
+    "image_publisher": "OpenLogic",
+    "image_offer": "CentOS-HPC",
+    "image_sku": "7.7",
+
+    "azure_tags": {
+        "environment": "production"
+    },
+
+    "location": "West Europe",
+    "vm_size": "Standard_HB120rs_v2"
+  }],
+  "provisioners": [
+    {
+      "type" : "file",
+      "source" : "input_files",
+      "destination" : "/tmp/input_files"
+    },
+    {
+    "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
+    "inline": [
+      "yum install -y cloud-init",
+      "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+     ],
+    "inline_shebang": "/bin/sh -x",
+    "type": "shell"
+  }]
+}
