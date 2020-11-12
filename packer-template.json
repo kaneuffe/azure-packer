@@ -13,7 +13,7 @@
     "client_secret": "{{user `client_secret`}}",
     "subscription_id": "{{user `subscription_id`}}",
     "managed_image_name": "{{user `managed_image_name`}}",
-    "resource_group_name": "{{user `resource_group_name`}}",
+    "managed_image_resource_group_name": "{{user `managed_image_resource_group_name`}}",
 
     "os_type": "Linux",
     "image_publisher": "OpenLogic",
